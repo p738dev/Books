@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { Text, StyleSheet, SafeAreaView } from "react-native";
 
-export default function App() {
+import HeaderBook from "./app/components/HeaderBook/HeaderBook";
+import BookForm from "./app/components/BookForm/BookForm";
+import BooksList from "./app/components/BooksList/BooksList";
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <HeaderBook />
+      <BookForm />
+      <Text style={styles.listHeader}>Books List:</Text>
+      <BooksList />
+    </SafeAreaView>
   );
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  listHeader: { marginBottom: 10, fontSize: 20, fontWeight: "bold" },
 });
